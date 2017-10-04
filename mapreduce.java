@@ -14,9 +14,9 @@ public static class Reduce extends Reducer<Text, Text, Text, Text {
        public void reduce(Text key, Iterable<Text> values,Context context) throws IOException,InterruptedException {
 
               for (IntWritable val : values) {
-                  String row += val.toString() + ','
+                  String row += val.toString() + ',';
               }
-              String res = row.substring(0, row.length() - 1)
+              String res = row.substring(0, row.length() - 1);
               context.write(key, new Text(res));
      }
 }
