@@ -1,0 +1,8 @@
+export HADOOP_CLASSPATH=/usr/jdk64/jdk1.8.0_112/lib/tools.jar
+export JAVA_HOME=/usr/jdk64/jdk1.8.0_112/
+export PATH=${JAVA_HOME}/bin:${PATH}
+/bin/hadoop com.sun.tools.javac.Main Pivot.java
+jar cf Pivot.jar Pivot*.class
+
+ hadoop jar Pivot.jar Pivot /res/csv/example.csv /user/aea/output
+ hdfs dfs -cat /user/aea/output/part-r-00000
